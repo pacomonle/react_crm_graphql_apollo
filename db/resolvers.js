@@ -12,8 +12,10 @@ require('dotenv').config({path: 'variables.env'});
 
 const resolvers = {
   Query: {
-    obtenerUsuario: async(_, {token}) => {
-        const usuarioId = await verificarToken(token, process.env.SECRETA);
+    obtenerUsuario: async(_, {}, ctx) => {
+       console.log(ctx)
+       const {usuarioId} = ctx
+       // const usuarioId = await verificarToken(token, process.env.SECRETA);
         return usuarioId;
       },
     obtenerProductos: async()=> {

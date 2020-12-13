@@ -11,7 +11,7 @@ const crearToken = (usuario, secreta, expiresIn) =>{
 
 const verificarToken = (token , secreta) => {
    
-    return jwt.verify(token, secreta);
+    return jwt.verify(token.replace('Bearer ', ''), secreta);
     
 }
 
